@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Monthly Quiz Report</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container my-4">
+    <h2 class="text-center mb-4">📚 Monthly Quiz Report</h2>
+    <p class="fs-5">Hi {{ data['username'] }},</p>
+    <p class="fs-6">Here is your quiz performance summary for this month:</p>
+
+    <table class="table table-bordered">
+      <thead>
+        <tr class="table-secondary">
+          <th>#</th>
+          <th>Quiz</th>
+          <th>Date</th>
+          <th>Score</th>
+          <th>Correct</th>
+          <th>Out Of</th>
+          <th>%</th>
+          <th>Duration</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for s in data['scores'] %}
+        <tr>
+          <td>{{ loop.index }}</td>
+          <td>{{ s.quiz_title }}</td>
+          <td>{{ s.date }}</td>
+          <td>{{ s.score }}</td>
+          <td>{{ s.correct_answers }}</td>
+          <td>{{ s.total_questions }}</td>
+          <td>{{ s.percentage }}%</td>
+          <td>{{ s.duration_taken }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <p class="mt-4">Keep learning and keep growing! 💪</p>
+    <p class="text-muted">— Your Quiz Platform Team</p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<div>
+    <h2 class="mt-3">Subjects</h2>
+
+    <div v-for="subject in subjects" :key="subject.id" class="card my-3">
+      <div class="card-body">
+        <h4>{{ subject.name }}</h4>
+        <p>{{ subject.description }}</p>
+
+        <!-- 🧾 Chapters Table -->
+        <table class="table table-bordered mt-3">
+          <thead>
+            <tr>
+              <th>Chapter Name</th>
+              <th>No. of Questions</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="chapter in subject.chapters" :key="chapter.id">
+              <td>{{ chapter.name }}</td>
+              <td>{{ chapter.question_count }}</td>
+              <td>
+                <button class="btn btn-sm btn-warning me-1" @click="editChapter(chapter)">Edit</button>
+                <button class="btn btn-sm btn-danger" @click="deleteChapter(chapter.id)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- ➕ Add Chapter -->
+        <div class="mt-3">
+          <input v-model="newChapters[subject.id].name" placeholder="New Chapter Name" class="form-control mb-1">
+          <input v-model="newChapters[subject.id].description" placeholder="Description" class="form-control mb-1">
+          <button class="btn btn-sm btn-success" @click="addChapter(subject.id)">Add Chapter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ➕ Add New Subject -->
+    <div class="card my-4">
+      <div class="card-body">
+        <h4>Add New Subject</h4>
+        <input v-model="newSubject.name" placeholder="Subject Name" class="form-control mb-2">
+        <textarea v-model="newSubject.description" placeholder="Description" class="form-control mb-2"></textarea>
+        <button class="btn btn-primary" @click="addSubject">Add Subject</button>
+      </div>
+    </div>
+  </div>
+  <!-- ✏️ Edit Chapter Modal -->
+    <div v-if="showEditModal" class="modal-backdrop">
+    <div class="modal">
+        <h5>Edit Chapter</h5>
+        <input v-model="editChapterData.name" class="form-control mb-2" placeholder="Chapter name" />
+        <textarea v-model="editChapterData.description" class="form-control mb-2" placeholder="Description"></textarea>
+        <div class="d-flex justify-content-end">
+        <button class="btn btn-success me-2" @click="updateChapter">Save</button>
+        <button class="btn btn-secondary" @click="showEditModal = false">Cancel</button>
+        </div>
+    </div>
+    </div>
+</div>
