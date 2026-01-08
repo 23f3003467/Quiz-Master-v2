@@ -1,4 +1,4 @@
-#Quiz Master app
+# Quiz Master app
 
 ## Table of Contents
 - [Introduction](#introduction)
