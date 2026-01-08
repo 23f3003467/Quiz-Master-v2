@@ -15,7 +15,7 @@ them.
 - Role-based dashboard (admin sees all, user sees personal data) 
 - Real-time dashboard using Vue 
 - Export quiz data and performance as CSV 
-- Celery Beat scheduled task for monthly user score report(only for every month)
+- Celery Beat scheduled task for monthly user score report(only for every last day of month)
 - Dynamic charts using Chart.js
 
 ## Technologies Used
