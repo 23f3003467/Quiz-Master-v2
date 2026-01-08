@@ -6,7 +6,8 @@ celery_app = app.extensions['celery']
 
 @celery_app.on_after_configure.connect
 def setup_periodic_tasks(sender, **kwargs):
-    # every 1st of month at 18:55
-    sender.add_periodic_task(crontab(day_of_month=1, hour=18, minute=55), monthly_score_report.s() )
+    # every last of month at 18:55
+    sender.add_periodic_task(crontab(day_of_month=30, hour=18, minute=55), monthly_score_report.s() )
 
     
+
