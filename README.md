@@ -30,7 +30,7 @@ The whole app should be setted-up in ubuntu ,I have seen many people running fla
    - git clone https://github.com/23f3003467/Quiz-Master-v2.git
    - cd Quiz-Master-v2
 2. Create a virtual environment:
-   - python -m venv env
+   - python3 -m venv env
    - source env/bin/activate
 4. Install the required packages:
    - pip install -r requirements.txt
