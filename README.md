@@ -15,7 +15,7 @@ them.
 - Role-based dashboard (admin sees all, user sees personal data) 
 - Real-time dashboard using Vue 
 - Export quiz data and performance as CSV 
-- Celery Beat scheduled task for monthly user score report 
+- Celery Beat scheduled task for monthly user score report(only for every month)
 - Dynamic charts using Chart.js
 
 ## Technologies Used
@@ -41,9 +41,9 @@ The whole app should be setted-up in ubuntu ,I have seen many people running fla
 7. Run Redis:
    - sudo service redis-server start
 8. Run Celery worker in another window:
-   - celery -A app.celery worker --loglevel=info
+   - celery -A app.celery worker --loglevel=info or worker.sh
 9. Run Celery beat in another window:
-   - celery -A app.celery beat --loglevel=info
+   - celery -A app.celery beat --loglevel=info or beat.sh
 
 ## Usage
  - video presentation link: https://drive.google.com/file/d/1xykpnIys23bJJdLUa_W9upXhvo4V_UzU/view?usp=sharing 
